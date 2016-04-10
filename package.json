@@ -1,0 +1,23 @@
+{
+  "name": "fcc-bp-fmdms",
+  "version": "1.0.0",
+  "description": "File Metadata Microservice",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bapinney/fcc-bp-fmdms.git"
+  },
+  "author": "Branden Pinney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bapinney/fcc-bp-fmdms/issues"
+  },
+  "homepage": "https://github.com/bapinney/fcc-bp-fmdms#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "multer": "^1.1.0"
+  }
+}

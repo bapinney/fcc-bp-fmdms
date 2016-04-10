@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>freeCodeCamp File Metadata Microservice</title>
+    <link rel="stylesheet" href="/public/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="main-container">
+        <div id="container-header">File Metadata Microservice</div>
+        <div id="upload-box">
+            <div id="instructions">Upload a file to view its metadata</div>
+            <form id="fileform" enctype="multipart/form-data" action="/upload" method="post">
+                <input type="file" name="input-file">
+                <input type="submit" value="Upload">
+            </form>
+        </div>
+    </div>
+    <script>
+        $("#fileform").submit(function(event) {
+            
+            event.preventDefault(); //Prevents UA from going to another page
+            var form = $(this);
+            var formdata = false;
+            if (window.FormData) {
+                formdata = new FormData(form[0]);
+            }
+            
+            var formAction = form.attr('action');
+            $.ajax({
+                url: '/upload',
+                data: formdata ? formdata : form.serialize(),
+                cache: false,
+                contentType: false,
+                processData: false,
+                type: 'POST',
+                success: function(data, textStatus, jqXHR) {
+                    window.alert("File size is: " + jqXHR.responseJSON.size + " bytes");
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>
